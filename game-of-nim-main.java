@@ -16,16 +16,23 @@ class GameofNim {
   input.nextLine();
   System.out.println(
     "Would you like to play against AI or against a friend locally? Press 1 for against beginner AI, 2 for expert AI, or 3 to play against a friend.");
-  int playmode;
-  playmode = input.nextInt();
+  String playmode;
+  playmode = input.nextLine();
+  
+   while (!playmode.equals("1") & !playmode.equals("2") &!playmode.equals("3") )
+    {
+    System.out.println("The input is invalid. You can only input from 1 to 3. Try again!");
+    playmode = input.nextLine();
+    }
+  
   int num_of_stone;
   int stone_left;
   num_of_stone = (int) (Math.random() * 15 + 15); // generate random number from 15-30
   stone_left = num_of_stone;
-  int counter = 0;
+
   int stone_took;
 
-  if (playmode == 1) // against beginner AI
+  if (playmode.equals ("1")) // against beginner AI
   {
    System.out.println("Welcome to the beginner AI mode. We have " + num_of_stone + " this turn. The AI went first.");
    System.out.println("");//add a space for better user experience
@@ -45,7 +52,7 @@ class GameofNim {
     System.out.println("");//add a space for better user experience
     System.out.println("Now it is your turn. Please input the number of stone you want to take (1-3)");
     stone_took = input.nextInt();
-    while (stone_took >3 ||(stone_took <1 )
+     while (stone_took >3 || stone_took <1 )
     {
     System.out.println("The input is invalid. You can only input from 1 to 3. Try again!");
     stone_took = input.nextInt();
