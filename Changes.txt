@@ -1,1 +1,1 @@
-
+The program needs to re ask the user of an answer when an invalild number of stones to tryed to be taken. For example 5 stonees
