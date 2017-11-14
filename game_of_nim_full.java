@@ -188,64 +188,64 @@ class game_of_nim_full {
 
     
 	}
-	public static void multiple_playerMode() {
+	public static void multiple_playerMode() {//We declare a void type method
 		
 	    Scanner input = new Scanner(System.in); //defining scanner class, for user input
 
 		    int stones = (int)(Math.random() * 15 + 15); //generating random number of stones
 		    
 		    System.out.println("You have selected the 2 player mode. Please enter the names of Player 1 and then Player 2: ");
-		    String user_name_1 = input.nextLine();
-		    String user_name_2 = input.nextLine();
+		    String user_name_1 = input.nextLine(); //getting the name of the first user
+		    String user_name_2 = input.nextLine();//getting name of user 2
 		    
 		    System.out.println(user_name_1 + " will go first, then " + user_name_2 + " will go.");
-		    boolean user1Win = false; //who wins the game
-	        boolean user2Win = false; 
+		    boolean user1Win = false; //user1 has not won yet
+	        boolean user2Win = false; //user2 has not won yet
 	
-		while(stones >= 1) {
+		while(stones >= 1) { //This is the game itself: the while loop ends when a player wins
 						  
 			System.out.println("There are currently " + stones + " stones in the pile. " + user_name_1 +", choose how many you would like to take. (Minimum = 1 Maximum = 3)");
-			int user_1_input = input.nextInt();
+			int user_1_input = input.nextInt(); //The prompt for the first user to take stones
 			
 			while (user_1_input > 3 || user_1_input <= 0 || user_1_input > stones) {
 			System.out.println("That is not a valid input, you can only take 1,2,3 stones from the pile. You cannot take 0 stones from the pile. Please input again: ");
-			user_1_input = input.nextInt();
+			user_1_input = input.nextInt(); //If the user takes an invalid number of stones
 			}
 			if (stones <= 3 && stones - user_1_input <= 0) {
 				System.out.println(user_name_1 + " you lost since you took the last stone. Congratulations, " + user_name_2 + " you have won!");
-				break;
+				break;//If user 1 loses while it is their turn, this message is outputted
 			}
-			stones = stones - user_1_input;
+			stones = stones - user_1_input; //the new value for stones becomes the old number of stones minus the number of stones user 1 took
 			  
 			if (stones <= 1) {
-				user1Win = true;
+				user1Win = true;//user1 becomes the winner,and the game ends
 				break;
 			}
 			  
 			System.out.println("There are currently " + stones + " stones in the pile. " + user_name_2 +", choose how many you would like to take. (Minimum = 1 Maximum = 3)");
-			int user_2_input = input.nextInt();
+			int user_2_input = input.nextInt();//the prompt for user 2 to take stones
 			
 			while (user_2_input > 3 || user_2_input <= 0 || user_2_input > stones) {
 				System.out.println("That is not a valid input, you can only take 1,2,3 stones from the pile. You cannot take 0 stones from the pile. Please input again: ");
-				user_2_input = input.nextInt();
+				user_2_input = input.nextInt(); //If the user takes an invalid number of stones
 			}
 			if (stones <= 3 && stones - user_1_input <= 0) {
 				System.out.println(user_name_1 + " you lost since you took the last stone. Congratulations, " + user_name_2 + " you have won!");
-				break;
+				break; //If user 1 loses while it is user 2's turn
 			}
-			stones = stones - user_2_input;
+			stones = stones - user_2_input; //The new value of stones is the old value minus the number user 2 took 
 			
 			if (stones <= 1) {
 				user2Win = true;
-				break;
+				break;//User2 wins and the game ends
 			    }
 	        }
 	
 		    if (user1Win == true) {
-			    System.out.println("There are " + stones + " stones in the pot.");
+			    System.out.println("There are " + stones + " stones in the pot."); //if user1 wins, this is what is outputted
 		 	    System.out.println("Congratulations, " + user_name_1 + " you have beat " + user_name_2 + ".");
 		    } else if (user2Win == true) {
-			    System.out.println("There are " + stones + " stones in the pot.");
+			    System.out.println("There are " + stones + " stones in the pot."); //if user2 wins, this is what is outputted
 		 	    System.out.println("Congratulations, " + user_name_2 + " you have beat " + user_name_1 + ".");
 		    }
 	
