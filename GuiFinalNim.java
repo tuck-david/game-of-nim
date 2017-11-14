@@ -15,7 +15,7 @@ public class GuiFinalNim extends JFrame {
 	JTextField welcome = new JTextField(
 			"Enter your name here.", 30);
 	JLabel rules = new JLabel(
-			"Welcome to the game of nim, "
+			"Welcome to the Game of Nim, "
 					// explain rules of game and greet user
 					+ ". How to play: The game starts with 15-30 stones in a pile. \nThe first player will be able to take away 1-3 stones from the pile. The second player will do the same. "
 					+ "\nEventually, there will be only one stone left, and the player to pick up the last stone will lose. \nPress enter to continue.");
